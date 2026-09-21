@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use these materials, please cite this repository."
+title: "Accessible Code-Generated Visualizations"
+type: software
+authors:
+  - family-names: "Kartali"
+    given-names: "Aneta"
+year: 2026
+license: MIT
+repository-code: "https://github.com/anjeta/accessible-code-generated-visualizations"
+url: "https://ascnet.ie/access2cs/"
+abstract: >
+  Educational materials and reproducible examples for creating more accessible
+  code-generated visualizations in Python and R, with particular attention to
+  blind and visually impaired learners. The repository includes accessibility
+  guidelines, graph examples, textual description workflows, and sonification
+  examples developed in the context of the Erasmus+ Access2CS project.
+keywords:
+  - accessibility
+  - data visualization
+  - computer science education
+  - Python
+  - R
+  - blind learners
+  - visually impaired learners
+  - Access2CS

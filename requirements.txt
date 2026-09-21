@@ -1,0 +1,13 @@
+# Core notebook / plotting dependencies
+matplotlib
+jupyter
+notebook
+
+# Accessible plot descriptions
+matplotalt
+
+# Existing-image alt text workflow
+chatlas
+
+# Sonification example
+strauss
