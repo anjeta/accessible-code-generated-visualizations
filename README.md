@@ -1,10 +1,10 @@
 # Accessible Code-Generated Visualizations
 
-> Practical guidelines and reproducible examples for creating more accessible data visualizations in **Python** and **R**.
+> Practical guidelines and reproducible examples for creating more accessible data visualizations and diagrams in **Python** and **R**.
 
-This repository accompanies the document **_Guidelines for Accessible Code-Generated Visualizations in Computer Science Education_** and provides ready-to-run examples for common graph types in Python and R.
+This repository accompanies the document **_Guidelines for Accessible Code-Generated Visualizations in Computer Science Education_** and provides ready-to-run examples for common graph and diagram types in Python and R.
 
-The materials are intended for teaching, demonstrations, and self-study and were developed with the needs of blind and visually impaired learners in mind.. The central idea is that accessibility should be considered **while the visualization is being created**, rather than added only after a figure has already been produced.
+The materials are intended for teaching, demonstrations, and self-study and were developed with the needs of blind and visually impaired learners in mind while also promoting more accessible visualization practices for all users. The central idea is that accessibility should be considered **while the visualization is being created**, rather than added only after a figure has already been produced.
 
 These materials were prepared in the context of the Erasmus+ project [Access2CS](https://ascnet.ie/access2cs/), which focuses on improving accessibility and inclusion in Computer Science education.
 
@@ -22,6 +22,7 @@ The repository contains:
 - 🤖 Examples of automatic graph description with **MatplotAlt**
 - 💬 Examples of generating descriptions for existing PNG graphs with **Chatlas + Gemini**
 - 🔊 A **STRAUSS sonification** example for representing data through sound
+- 🔷 **PlantUML/Jupyter examples** for accessible code-generated diagrams
 
 ---
 
@@ -30,20 +31,20 @@ The repository contains:
 The examples in this repository follow four main principles described in the accompanying guidelines:
 
 1. **Prioritize semantic meaning**  
-   A visualization should clearly communicate what variables and relationships are represented.
+   A visualization or diagram should clearly communicate what variables, relationships, states or processes it represents.
 
 2. **Preserve computational context**  
    Students should be able to understand how the graph relates to the code, data, parameters, and transformations that generated it.
 
 3. **Support reproducibility**  
-   Source code is provided so that graphs can be inspected, modified, and recreated.
+   Source code is provided so that graphs and diagrams can be inspected, modified, and recreated.
 
 4. **Support non-visual exploration**  
    Whenever possible, visualizations should be complemented with textual descriptions, structured data, or alternative modalities such as sonification.
 
 ---
 
-## ♿ Accessibility-aware plotting
+## 👁️ Accessibility-aware plotting
 
 Across both Python and R examples, the plotting code emphasizes:
 
@@ -83,10 +84,37 @@ Each graph-specific notebook contains:
 
 ---
 
+## 🔷 PlantUML diagram types
+
+PlantUML examples are provided as Python Jupyter notebooks.
+
+| Diagram type | Typical purpose |
+|---|---|
+| **Sequence diagram** | Chronological interactions between participants |
+| **Class diagram** | Classes, attributes, methods, inheritance, and associations |
+| **Activity diagram** | Workflows, algorithms, branching, and procedural logic |
+| **State diagram** | States and event-driven transitions |
+| **Network / graph diagram** | Nodes, connections, and system relationships |
+
+Each PlantUML notebook contains:
+
+1. a short explanation of what the diagram is used for
+2. accessibility guidance specific to that diagram type
+3. platform-independent PlantUML setup instructions
+4. an accessibility-aware worked example
+5. a semantic textual description of the diagram
+6. a reusable PlantUML placeholder/template
+7. guidance for writing an accessible description of a new diagram
+
+The PlantUML examples emphasize **meaningful identifiers, explicit relationship labels, simple structures, logical ordering, and textual explanations**. Because the diagram source itself is plain text, it can also provide a useful non-visual representation of the structure.
+
+---
+
 ## 🗂 Repository structure
 
 ```text
 accessible-code-generated-visualizations/
+│
 ├── README.md
 ├── LICENSE
 ├── CITATION.cff
@@ -113,9 +141,17 @@ accessible-code-generated-visualizations/
 │   ├── box_plot_accessible_R.ipynb
 │   └── heatmap_accessible_R.ipynb
 │
+├── plantuml/
+│       ├── sequence_diagram_accessible.ipynb
+│       ├── class_diagram_accessible.ipynb
+│       ├── activity_diagram_accessible.ipynb
+│       ├── state_diagram_accessible.ipynb
+│       └── network_diagram_accessible.ipynb
+│
 └── images/
     ├── line_graph_accessible.png
-    └── bar_graph_accessible.png
+    ├── bar_graph_accessible.png
+    └── sequence_diagram_accessible.png
 ```
 
 ---
@@ -157,7 +193,42 @@ The R notebooks follow the same teaching structure as the Python versions. Becau
 
 ---
 
+# 🔷 Accessible diagrams with PlantUML
+
+PlantUML provides a code-first way of creating technical diagrams. Instead of manually placing shapes and arrows, the diagram structure is expressed as text.
+
+This approach can improve accessibility because relationships and entity names are explicitly represented in text rather than communicated only through visual position.
+
+PlantUML source should be treated as an **additional accessibility layer**, not as a complete replacement for an explanatory description. Complex diagrams may still require a concise textual explanation of their purpose and relationships.
+
+---
+
 # 🚀 Getting started
+
+## PlantUML setup
+
+The notebooks use **Python to write PlantUML source code and call PlantUML locally** to render the diagrams.
+
+PlantUML must therefore be available on your system. A local PlantUML installation requires Java, and some diagram types may also require Graphviz.
+
+You can use PlantUML in either of these ways:
+
+1. **Install the PlantUML command-line tool** using the package manager available on your operating system.
+2. **Download `plantuml.jar`** from the PlantUML website and run it with Java.
+
+If the `plantuml` command is installed, verify it with:
+
+```bash
+plantuml -version
+```
+
+If you use a downloaded `plantuml.jar` instead of a `plantuml` command, set the `PLANTUML_JAR` environment variable to the path of the JAR file before running the notebook.
+
+The Python helper included in the notebooks supports both approaches.
+
+> No additional Python PlantUML package is required by these notebooks. Python calls the local PlantUML installation using the standard `subprocess` module.
+
+---
 
 ## Python environment
 
@@ -252,19 +323,21 @@ The included example demonstrates explicit mappings between data variables and a
 # 🧭 How to use these materials
 
 ### For students
-Run the examples, inspect the code, change the data, and observe how visualization design affects interpretation.
+Run the examples, inspect the code, change the data or diagram definitions, and observe how accessibility-aware design affects interpretation.
 
 ### For instructors
-Use the notebooks as teaching examples when discussing visualization, accessibility, data analysis, or reproducible computational workflows.
+Use the notebooks as teaching examples when discussing visualization, technical diagrams, accessibility, data analysis, or reproducible computational workflows.
 
 ### For developers
-Use the reusable templates as starting points for accessibility-aware visualizations in new projects.
+Use the reusable graph and diagram templates as starting points for accessibility-aware visual materials in new projects.
 
 ---
 
 ## ✅ Accessibility checklist
 
 Before publishing a code-generated visualization, consider the following:
+
+### Graphs
 
 - [ ] Does the graph have a descriptive title?
 - [ ] Are both axes clearly labeled?
@@ -277,6 +350,16 @@ Before publishing a code-generated visualization, consider the following:
 - [ ] Can the underlying data or source code be accessed?
 - [ ] Is a textual description available?
 - [ ] Could another modality, such as sonification, improve access?
+
+### Diagrams
+
+- [ ] Are entities, classes, states, nodes, and actions given meaningful names?
+- [ ] Are relationships and transitions labeled explicitly?
+- [ ] Is the diagram small and modular enough to interpret?
+- [ ] Can the structure be understood from the source text?
+- [ ] Is the important interaction or workflow order clear?
+- [ ] Is a semantic textual explanation available?
+- [ ] Can the source representation be accessed directly?
 
 ---
 
